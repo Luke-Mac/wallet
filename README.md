@@ -15,13 +15,16 @@ you a serious edge against the competition.
 
 ### 1. Project setup
 Test derive to make sure installation is all ok.
+
 ![derive_ok](Images/derive_ok.png)
 
 A look at the directory:
+
 ![wallet_dir](Images/wallet_dir.png)
 
 ### 2. Setup constants
 Set the constants for the coins.
+
 ![constants](Images/constants.png)
 
 ### 3. Generate Mnemonic
@@ -31,6 +34,7 @@ This was stored as a variable in the .env file.
 
 ### 4. Derive the wallet keys
 Derive wallet keys & create a dictionary object for the coins.
+
 ![wallet_keys](Images/wallet_keys.png)
 
 ### 5. Linking the transaction signing libraries
@@ -56,4 +60,6 @@ ___
 ![metamask_acc1](Images/metamask_acc1.png)
 ![metamask_acc2](Images/metamask_acc2.png)
 
+---
 Although everything compiled ok, I don't think the transactions transacted as they should have.  Will have to look in to this further once time permits.  I know I'm pretty close!
+___
