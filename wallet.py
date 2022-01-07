@@ -12,6 +12,8 @@ from bit.network import NetworkAPI
 # Load and set environment variables
 load_dotenv()
 mnemonic=os.getenv("MNEMONIC")
+eth_key=os.getenv("ETH_KEY")
+btc_key=os.getenv("BTC_KEY")
 
 
 # Import constants.py and necessary functions from bit and web3
@@ -38,6 +40,9 @@ def priv_key_to_account(coin, priv_key):
         return Account.privateKeyToAccount(priv_key)
     elif coin == BTCTEST:
         return PrivateKeyTestnet(priv_key)
+
+eth_acc = priv_key_to_account(ETH, eth_key) 
+btc_acc = priv_key_to_account(BTCTEST, btc_key)
 
 # Create a function called `create_tx` that creates an unsigned transaction appropriate metadata.
 def create_tx(coin, account, recipient, amount):
@@ -69,4 +74,12 @@ def send_tx(coin, account, recipient, amount):
         tx_btctest = create_tx(coin, account, recipient, amount)
         signed_tx_btctest = account.sign_transaction(tx_btctest)
         return NetworkAPI.broadcast_tx_testnet(signed_tx_btctest)
+
+# Send Transaction ETH
+send_tx(ETH, eth_acc, "0xe24b80814276b9f1507D6e451A0716650b602e05", 1)
+
+
+# Send Transaction BTCTEST
+send_tx(BTCTEST, btc_acc, "129yRRsMxJg2FPzGZjENQtDHYao88kX967", 1)
+
 
